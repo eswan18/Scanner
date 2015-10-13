@@ -1,0 +1,8 @@
+"THESE ARE VALID UNUSUAL OPERATIONS"
+c % 4
+a == 'a'
+apples && oranges
+red || blue
+ten^fold
+increment++
+decrement --

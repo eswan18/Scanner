@@ -1,0 +1,9 @@
+"THESE ARE VALID BRACES, BRACKETS, ETC"
+{
+	a: integer = 13
+	b: s/4;
+	23;
+	array[3]
+	[43](34)
+	function(3,23)
+}

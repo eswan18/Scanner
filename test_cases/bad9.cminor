@@ -1,0 +1,4 @@
+"THIS IS ILLEGAL BECAUSE OF NESTED COMMENTS GONE WRONG"
+/* Freedom from the scanner!
+/* even more freedom! */
+still free! nevermind */
