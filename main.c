@@ -4,14 +4,31 @@
 extern FILE *yyin;
 extern char *yytext;
 
+int scan(char *filename);
+int parse(char *filename);
+
 int main(int argc, char *argv[]) {
         char *filename;
-        if (argc >= 2) {
-                filename = argv[1];
+	char *option;
+        if (argc >= 3) {
+                option = argv[1];
+		filename = argv[2];
         } else {
-		fprintf(stderr,"error: provide an option (e.g. -scan, -parse) when invoking cminor.");
+		fprintf(stderr,"error: provide both an option (e.g. -scan, -parse) and a filename when invoking cminor.\nfor example: './cminor -parse myfile.cminor'\n");
 		return(1);
         }
+	
+	if (strcmp(option,"-scan") == 0) {
+		scan(filename);
+	} else if (strcmp(option,"-parse") == 0) {
+		scan(filename);
+		parse(filename);
+	}
+	
+        return 0;
+}
+
+int scan(char *filename) {
         yyin  = fopen(filename,"r");
         while(yyin) {
                 token_t t = yylex();
@@ -31,5 +48,9 @@ int main(int argc, char *argv[]) {
                 printf("\n");
         }
         fclose(yyin);
-        return 0;
+	return 0;
+}
+
+int parse(char *filename) {
+	return 0;
 }
