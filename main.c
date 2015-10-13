@@ -1,14 +1,16 @@
+#include <string.h>
 #include "token.h"
-extern yyin;
-extern yytext;
+
+extern FILE *yyin;
+extern char *yytext;
 
 int main(int argc, char *argv[]) {
         char *filename;
         if (argc >= 2) {
                 filename = argv[1];
         } else {
-                /* add error message here */
-                return(1);
+		fprintf(stderr,"error: provide an option (e.g. -scan, -parse) when invoking cminor.");
+		return(1);
         }
         yyin  = fopen(filename,"r");
         while(yyin) {
